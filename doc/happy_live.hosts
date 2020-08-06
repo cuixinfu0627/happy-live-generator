@@ -1,0 +1,27 @@
+# 开发演示环境：45
+127.0.0.1		com.live.db
+
+# redis 需要根据实际项目改动ip redis.cloud.server1:6381,redis.cloud.server2:6382,redis.cloud.server3:6383,redis.cloud.server4:6384,redis.cloud.server5:6385,redis.cloud.server6:6386
+192.168.1.175 	redis.cloud.server1 	#6381
+192.168.1.175 	redis.cloud.server2 	#6382
+192.168.1.175 	redis.cloud.server3		#6383
+192.168.1.175 	redis.cloud.server4		#6384
+192.168.1.175 	redis.cloud.server5		#6385
+192.168.1.175 	redis.cloud.server6		#6386
+
+# zookeeper 需要根据实际项目改动ip
+127.0.0.1	zookeeper.server1
+127.0.0.1	zookeeper.server2
+127.0.0.1	zookeeper.server3
+
+# rocketmq 需要根据实际项目改动ip 1.rocketmq:9876;2.rocketmq:9876
+192.168.1.175 	1.rocketmq		#port:9876
+192.168.1.175 	2.rocketmq		#port:9876
+
+# ftp相关
+192.168.14.45 	ftp.xf-admin.zhxf.ltd
+192.168.14.45 	file.xf-admin.zhxf.ltd
+
+# 接口域名
+127.0.0.1	    live.xingfu999.com
+127.0.0.1	    api.live.xingfu999.com

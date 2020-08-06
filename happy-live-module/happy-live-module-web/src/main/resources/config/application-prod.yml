@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    druid:
+      url: "jdbc:mysql://127.0.0.1:3306/happy-live?useSSL=false&allowMultiQueries=true&characterEncoding=UTF-8&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+      username: "root"
+      password: "root"
+      driver-class-name: "com.mysql.cj.jdbc.Driver"
+      initial-size: 10
+      max-active: 50
+      min-idle: 2
+  redis:
+    cluster:
+      nodes: @redis.nodes@
+  rocketmq:
+    name-server-address: 1.rocketmq:9876;2.rocketmq:9876
+    producer-group: happy-live
+
+dubbo:
+  scan:
+    base-packages: "com.sureland.design.service.impl"
+  application:
+    qos-port: @live-dubbo-qos-port@
+  protocol:
+    name: dubbo
+    port: @live-dubbo-protocol-port@
+  registry:
+    address: @dubbo.address@
+
+application:
+  dubbo:
+    service-remote:
+      live:
+        message-service-url:
+    service-provide:
+      version: 1.0

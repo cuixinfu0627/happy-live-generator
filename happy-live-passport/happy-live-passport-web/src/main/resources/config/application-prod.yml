@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    druid:
+      url: "jdbc:mysql://com.live.db:3306/happy_live?useSSL=false&allowMultiQueries=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+      username: "root"
+      password: "123456"
+      driver-class-name: "com.mysql.cj.jdbc.Driver"
+      initial-size: 10
+      max-active: 50
+      min-idle: 2
+  redis:
+    cluster:
+      nodes: @redis.nodes@
+  rocketmq:
+    name-server-address: @rocketmq.address@
+    producer-group: happy-live
+
+dubbo:
+  scan:
+    base-packages: "com.happy.live.passport.service.impl"
+  application:
+    qos-port: @passport-dubbo-qos-port@
+  protocol:
+    name: dubbo
+    port: @passport-dubbo-protocol-port@
+  registry:
+    address: @dubbo.address@
+
+application:
+  dubbo:
+    service-remote:
+      passport:
+        message-service-url:
+      notify:
+        service-url:
+        version: 1.0
+    service-provide:
+      version: 1.0

@@ -1,0 +1,25 @@
+spring:
+  redis:
+    cluster:
+      nodes: @redis.nodes@
+
+dubbo:
+  scan:
+    base-packages: com.happy.live.api.controller
+  application:
+    qos-port: @api-dubbo-qos-port@
+  protocol:
+    name: dubbo
+    port: @api-dubbo-protocol-port@
+  registry:
+    address: @dubbo.address@
+
+application:
+  dubbo:
+    service-remote:
+      module:
+        url:
+        version: 1.0
+      passport:
+        url:
+        version: 1.0

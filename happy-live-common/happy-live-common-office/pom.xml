@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.happy.live.common</groupId>
+        <artifactId>happy-live-common</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>happy-live-common-office</artifactId>
+    <version>${happy-live-common-office-vision}</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <dom4j.version>1.6.1</dom4j.version>
+        <poi.version>3.17</poi.version>
+        <pdfbox.version>2.0.8</pdfbox.version>
+  </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.happy.live.common</groupId>
+            <artifactId>happy-live-common-base</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- xml 处理 -->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>${dom4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>

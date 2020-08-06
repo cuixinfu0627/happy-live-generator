@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.happy.live</groupId>
+	<artifactId>happy-live</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+
+	<name>happy-live</name>
+	<description>happy live</description>
+
+	<modules>
+        <module>happy-live-common</module>
+        <module>happy-live-module</module>
+		<module>happy-live-passport</module>
+        <module>happy-live-api</module>
+	</modules>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.4.RELEASE</version>
+	</parent>
+
+	<properties>
+		<!-- ======================》项目子模块依赖《========================== -->
+		<!-- happy-live-common-modules version 版本-->
+		<happy-live-common-base-vision>1.0-SNAPSHOT</happy-live-common-base-vision>
+		<happy-live-common-mvc-vision>1.0-SNAPSHOT</happy-live-common-mvc-vision>
+		<happy-live-common-frame-vision>1.0-SNAPSHOT</happy-live-common-frame-vision>
+		<happy-live-common-office-vision>1.0-SNAPSHOT</happy-live-common-office-vision>
+		<happy-live-common-third-vision>1.0-SNAPSHOT</happy-live-common-third-vision>
+		<happy-live-common-starter-vision>1.0-SNAPSHOT</happy-live-common-starter-vision>
+
+		<!-- happy-live-passport version 版本-->
+		<happy-live-passport-entity>1.0-SNAPSHOT</happy-live-passport-entity>
+		<happy-live-passport-service>1.0-SNAPSHOT</happy-live-passport-service>
+		<happy-live-passport-service-remote>1.0-SNAPSHOT</happy-live-passport-service-remote>
+		<happy-live-passport-web>1.0-SNAPSHOT</happy-live-passport-web>
+
+		<!-- happy-live-modules version 版本-->
+		<happy-live-module-dao>1.0-SNAPSHOT</happy-live-module-dao>
+		<happy-live-module-service>1.0-SNAPSHOT</happy-live-module-service>
+		<happy-live-module-service-remot>1.0-SNAPSHOT</happy-live-module-service-remot>
+		<happy-live-module-web>1.0-SNAPSHOT</happy-live-module-web>
+
+		<!-- 项目编码 -->
+		<java.encode>UTF-8</java.encode>
+		<project.build.sourceEncoding>${java.encode}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${java.encode}</project.reporting.outputEncoding>
+
+		<!-- SpringBoot 以及相关依赖版本 -->
+		<spring-boot.version>2.2.4.RELEASE</spring-boot.version>
+		<dubbo.version>2.6.7</dubbo.version>
+		<dubbo-spring-boot.version>0.2.0</dubbo-spring-boot.version>
+		<zookeeper.version>3.5.6</zookeeper.version>
+		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+
+		<!-- logs 日志相关 -->
+		<log.window.path>D:\\logs\\</log.window.path>
+		<log.linux.path>/home/webuser/logs/</log.linux.path>
+		<log.root.level>info</log.root.level>
+		<log.history.days>30</log.history.days>
+		<log.pattern>===========%d{yyyy-MM-dd HH:mm:ss} %level %c:%L - %msg%n</log.pattern>
+		<log.maxFileSize>50MB</log.maxFileSize>
+		<log.totalSizeCap>1GB</log.totalSizeCap>
+		<log.happy.live.level>info</log.happy.live.level>
+
+		<!-- 依赖服务相关 -->
+		<redis.nodes>redis.cloud.server1:6381,redis.cloud.server2:6382,redis.cloud.server3:6383,redis.cloud.server4:6384,redis.cloud.server5:6385,redis.cloud.server6:6386</redis.nodes>
+		<dubbo.address>zookeeper://zookeeper.server1:2181?backup=zookeeper.server2:2182,zookeeper.server3:2183</dubbo.address>
+		<rocketmq.address>1.rocketmq:9876;2.rocketmq:9876</rocketmq.address>
+
+		<!-- ======================》jar包依赖文件 - start《========================== -->
+		<java.version>1.8</java.version>
+		<mybatisplus.version>3.3.1</mybatisplus.version>
+		<mysql.version>8.0.17</mysql.version>
+		<mssql.version>4.0</mssql.version>
+		<oracle.version>11.2.0.3</oracle.version>
+		<druid.version>1.1.10</druid.version>
+		<quartz.version>2.3.0</quartz.version>
+
+		<shiro.version>1.4.0</shiro.version>
+		<jwt.version>0.7.0</jwt.version>
+		<kaptcha.version>0.0.9</kaptcha.version>
+		<qiniu.version>7.2.23</qiniu.version>
+		<aliyun.oss.version>2.8.3</aliyun.oss.version>
+		<qcloud.cos.version>4.4</qcloud.cos.version>
+		<swagger.version>2.7.0</swagger.version>
+
+		<!-- ======================》jar包依赖文件《 - base========================== -->
+		<servlet.version>4.0.1</servlet.version>
+		<slf4j-api.version>1.7.30</slf4j-api.version>
+
+		<!-- json 依赖 -->
+		<gson.version>2.8.6</gson.version>
+		<fastjson.version>1.2.58</fastjson.version>
+		<jackson-databind.version>2.10.3</jackson-databind.version>
+		<jsoup.version>1.12.2</jsoup.version>
+		<json-lib.version>2.4</json-lib.version>
+		<joda-time.version>2.9.9</joda-time.version>
+		<hutool.version>4.1.1</hutool.version>
+		<lombok.version>1.18.4</lombok.version>
+		<commons-util.version>1.0.6-RELEASE</commons-util.version>
+		<web-util.version>1.0.6-RELEASE</web-util.version>
+
+		<!-- commons -->
+		<commons-lang.version>2.6</commons-lang.version>
+		<commons-fileupload.version>1.2.2</commons-fileupload.version>
+		<commons-io.version>2.5</commons-io.version>
+		<commons-codec.version>1.10</commons-codec.version>
+		<commons-configuration.version>1.10</commons-configuration.version>
+
+		<!-- commons-httpclient -->
+		<httpmime.version>4.5</httpmime.version>
+		<commons-httpclient.version>3.1</commons-httpclient.version>
+		<commons-net.version>3.6</commons-net.version>
+
+
+		<mail.version>1.4.7</mail.version>
+		<core.version>3.4.0</core.version>
+		<util.version>1.0.6-RELEASE</util.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>custom-service-port</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!--passport-->
+				<passport-server-port-suffix>01</passport-server-port-suffix>
+				<passport-server-port>88${passport-server-port-suffix}</passport-server-port>
+				<passport-dubbo-protocol-port>100${passport-server-port-suffix}</passport-dubbo-protocol-port>
+				<passport-dubbo-qos-port>101${passport-server-port-suffix}</passport-dubbo-qos-port>
+				<passport-devtools-livereload-port>110${passport-server-port-suffix}</passport-devtools-livereload-port>
+
+				<!--api-->
+				<api-server-port-suffix>02</api-server-port-suffix>
+				<api-server-port>88${api-server-port-suffix}</api-server-port>
+				<api-dubbo-protocol-port>100${api-server-port-suffix}</api-dubbo-protocol-port>
+				<api-dubbo-qos-port>101${api-server-port-suffix}</api-dubbo-qos-port>
+				<api-devtools-livereload-port>110${api-server-port-suffix}</api-devtools-livereload-port>
+
+				<!--module-->
+				<module-server-port-suffix>03</module-server-port-suffix>
+				<module-server-port>88${module-server-port-suffix}</module-server-port>
+				<module-dubbo-protocol-port>100${module-server-port-suffix}</module-dubbo-protocol-port>
+				<module-dubbo-qos-port>101${module-server-port-suffix}</module-dubbo-qos-port>
+				<module-devtools-livereload-port>110${module-server-port-suffix}</module-devtools-livereload-port>
+
+
+			</properties>
+		</profile>
+	</profiles>
+
+	<dependencies>
+
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- ======================》jar包依赖文件 - start《========================== -->
+			<dependency>
+				<groupId>com.alibaba.boot</groupId>
+				<artifactId>dubbo-spring-boot-starter</artifactId>
+				<version>${dubbo-spring-boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo-config-spring</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo-container-spring</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>${zookeeper.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-log4j12</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- ==================== mybatis-plus-相关 ======================== -->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatisplus.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>com.baomidou</groupId>
+						<artifactId>mybatis-plus-generator</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!--mysql-->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+			<!--oracle驱动-->
+			<dependency>
+				<groupId>com.oracle</groupId>
+				<artifactId>ojdbc6</artifactId>
+				<version>${oracle.version}</version>
+			</dependency>
+			<!--mssql驱动-->
+			<dependency>
+				<groupId>com.microsoft.sqlserver</groupId>
+				<artifactId>sqljdbc4</artifactId>
+				<version>${mssql.version}</version>
+			</dependency>
+			<!--postgresql驱动-->
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgresql.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.quartz-scheduler</groupId>
+				<artifactId>quartz</artifactId>
+				<version>${quartz.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>com.mchange</groupId>
+						<artifactId>c3p0</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-core</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>${jwt.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.axet</groupId>
+				<artifactId>kaptcha</artifactId>
+				<version>${kaptcha.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${swagger.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${swagger.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qiniu</groupId>
+				<artifactId>qiniu-java-sdk</artifactId>
+				<version>${qiniu.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aliyun.oss</groupId>
+				<artifactId>aliyun-sdk-oss</artifactId>
+				<version>${aliyun.oss.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qcloud</groupId>
+				<artifactId>cos_api</artifactId>
+				<version>${qcloud.cos.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-log4j12</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<!-- ======================》jar包依赖文件《 - base========================== -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${servlet.version}</version>
+			</dependency>
+
+			<!-- logo日志管理 -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j-api.version}</version>
+			</dependency>
+
+			<!-- Json 处理 -->
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>${gson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson-databind.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sf.json-lib</groupId>
+				<artifactId>json-lib</artifactId>
+				<version>${json-lib.version}</version>
+				<classifier>jdk15</classifier>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-lang</groupId>
+						<artifactId>commons-lang</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>${jsoup.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>${joda-time.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.t</groupId>
+				<artifactId>util</artifactId>
+				<version>${util.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.t</groupId>
+				<artifactId>web-util</artifactId>
+				<version>${web-util.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.t</groupId>
+				<artifactId>common-util</artifactId>
+				<version>${commons-util.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>ch.qos.logback</groupId>
+						<artifactId>logback-classic</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.fasterxml.jackson.core</groupId>
+						<artifactId>jackson-databind</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${commons-lang.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>${commons-fileupload.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons-io.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons-codec.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-configuration</groupId>
+				<artifactId>commons-configuration</artifactId>
+				<version>${commons-configuration.version}</version>
+			</dependency>
+
+			<!-- commons-httpclient -->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpmime</artifactId>
+				<version>${httpmime.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-httpclient</groupId>
+				<artifactId>commons-httpclient</artifactId>
+				<version>${commons-httpclient.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>commons-net</groupId>
+				<artifactId>commons-net</artifactId>
+				<version>${commons-net.version}</version>
+			</dependency>
+
+
+			<!-- 用于生成二维码 -->
+			<dependency>
+				<groupId>com.google.zxing</groupId>
+				<artifactId>core</artifactId>
+				<version>${core.version}</version>
+			</dependency>
+
+			<!-- mail工具 -->
+			<dependency>
+				<groupId>javax.mail</groupId>
+				<artifactId>mail</artifactId>
+				<version>${mail.version}</version>
+			</dependency>
+		</dependencies>
+
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- resource插件, 设定编码 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.7</version>
+					<configuration>
+						<encoding>${java.encode}</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+					</configuration>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.10.1</version>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- compiler插件, 设定JDK版本及编码 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.2</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<encoding>${java.encode}</encoding>
+						<!--
+                        <compilerArguments>
+                            <verbose/>
+                            <bootclasspath>${java.home}\lib\rt.jar;${java.home}/lib/jce.jar</bootclasspath>
+                        </compilerArguments>
+                        -->
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<archive>
+							<addMavenDescriptor>false</addMavenDescriptor>
+						</archive>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<resourceEncoding>${java.encode}</resourceEncoding>
+						<archive>
+							<addMavenDescriptor>false</addMavenDescriptor>
+						</archive>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+					<configuration>
+						<skip>true</skip>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>2.13</version>
+					<configuration>
+						<configLocation>config/maven_checks.xml</configLocation>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jxr-plugin</artifactId>
+					<version>2.5</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+	</build>
+
+	<repositories>
+		<repository>
+			<id>public</id>
+			<name>aliyun nexus</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>public</id>
+			<name>aliyun nexus</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>

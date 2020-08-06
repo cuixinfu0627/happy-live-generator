@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.happy.live.passport.dao.WpFeedbackDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.happy.live.passport.entity.WpFeedbackEntity" id="wpFeedbackMap">
+        <result property="id" column="id"/>
+        <result property="number" column="number"/>
+        <result property="type" column="type"/>
+        <result property="targetId" column="target_id"/>
+        <result property="targetObj" column="target_obj"/>
+        <result property="userId" column="user_id"/>
+        <result property="title" column="title"/>
+        <result property="description" column="description"/>
+        <result property="remark" column="remark"/>
+        <result property="tel" column="tel"/>
+        <result property="email" column="email"/>
+        <result property="image" column="image"/>
+        <result property="reply" column="reply"/>
+        <result property="replyUserId" column="reply_user_id"/>
+        <result property="appraise" column="appraise"/>
+        <result property="appraiseTime" column="appraise_time"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+
+</mapper>
